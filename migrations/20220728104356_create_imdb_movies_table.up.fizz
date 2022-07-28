@@ -1,0 +1,8 @@
+create_table("imdb_movies") {
+    t.Column("id", "integer", {primary: true})
+    t.Column("title", "string", {"default": ""})
+    t.Column("poster", "string", {"default": ""})
+    t.Column("genre", "string", {"default": ""})
+    t.Column("year", "integer", {"default": 0})
+    t.Column("rating", "float", {"default": 0.0})
+}

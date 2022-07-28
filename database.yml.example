@@ -1,0 +1,7 @@
+development:
+  dialect: postgres
+  database: <database name>
+  user: <user name (default is postgres)>
+  password: <password (default is no password)>
+  host: 127.0.0.1
+  pool: 5
