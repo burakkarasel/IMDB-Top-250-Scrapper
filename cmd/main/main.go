@@ -14,12 +14,16 @@ var app *fiber.App
 
 func main() {
 
-	topMovies := crawl()
-	for _, m := range topMovies {
-		err := models.InsertMovie(m)
+	tempMv, _ := models.GetMovieById(1)
 
-		if err != nil {
-			log.Fatal("cannot insert value to DB")
+	if tempMv.Title == "" {
+		topMovies := crawl()
+		for _, m := range topMovies {
+			err := models.InsertMovie(m)
+
+			if err != nil {
+				log.Fatal("cannot insert value to DB")
+			}
 		}
 	}
 
