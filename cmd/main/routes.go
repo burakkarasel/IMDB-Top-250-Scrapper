@@ -5,7 +5,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func Router(App *fiber.App) {
+func Router(app *fiber.App) {
 	app.Get("/api/all", controller.GetAllMovies)
 	app.Get("/api/:id", controller.GetMovieByID)
 }
