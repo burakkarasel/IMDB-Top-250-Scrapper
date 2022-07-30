@@ -7,7 +7,10 @@ import (
 
 	"github.com/burakkarasel/IMDB-Top-250-Scrapper/internal/models"
 	"github.com/gocolly/colly"
+	"github.com/gofiber/fiber/v2"
 )
+
+var app *fiber.App
 
 func main() {
 
@@ -19,6 +22,11 @@ func main() {
 			log.Fatal("cannot insert value to DB")
 		}
 	}
+
+	app = fiber.New()
+	Router(app)
+
+	app.Listen(":3000")
 }
 
 // crawl goes to IMDB top250 page and scraps movie data for each movie's page
