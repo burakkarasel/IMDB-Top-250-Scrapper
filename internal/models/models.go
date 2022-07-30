@@ -42,3 +42,73 @@ func InsertMovie(m Movie) error {
 
 	return nil
 }
+
+// GetMovieById gets the movie from DB according to it's id
+func GetMovieById(id int) (Movie, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	query := `
+		select title, poster, genre, year, rating
+		from imdb_movies
+		where id = $1
+	`
+	var mv Movie
+
+	row := db.QueryRowContext(ctx, query, id)
+
+	err := row.Scan(
+		&mv.Title,
+		&mv.Poster,
+		&mv.Genre,
+		&mv.Year,
+		&mv.Rating,
+	)
+
+	if err != nil {
+		return mv, err
+	}
+
+	return mv, nil
+}
+
+// GetAllMovies returns all the movies from DB as a slice of Movie
+func GetAllMovies() ([]Movie, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	query := `
+		select title, poster, genre, year, rating
+		from imdb_movies
+	`
+	var movies []Movie
+
+	rows, err := db.QueryContext(ctx, query)
+
+	if err != nil {
+		return movies, err
+	}
+
+	for rows.Next() {
+		var mv Movie
+		err := rows.Scan(
+			&mv.Title,
+			&mv.Poster,
+			&mv.Genre,
+			&mv.Year,
+			&mv.Rating,
+		)
+
+		if err != nil {
+			return movies, err
+		}
+
+		movies = append(movies, mv)
+	}
+
+	if err = rows.Err(); err != nil {
+		return movies, err
+	}
+
+	return movies, nil
+}
