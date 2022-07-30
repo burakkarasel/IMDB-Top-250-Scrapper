@@ -23,6 +23,9 @@ func GetMovieByID(c *fiber.Ctx) error {
 		return c.Status(500).SendString(err.Error())
 	}
 
+	c.Response().Header.Set("Content-Type", "text/html; charset=utf-8")
+	c.Response().Header.Set("Access-Control-Allow-Origin", "*")
+
 	return c.JSON(&movie)
 }
 
@@ -34,6 +37,9 @@ func GetAllMovies(c *fiber.Ctx) error {
 	if err != nil {
 		return c.Status(500).SendString(err.Error())
 	}
+
+	c.Response().Header.Set("Content-Type", "text/html; charset=utf-8")
+	c.Response().Header.Set("Access-Control-Allow-Origin", "*")
 
 	return c.JSON(&movies)
 }
