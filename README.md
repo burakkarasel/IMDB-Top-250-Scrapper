@@ -13,5 +13,5 @@ Used Fiber framework to create API from the data.
 ## GIF of the Database
 ![imdb-scrapper](https://user-images.githubusercontent.com/99825584/181496788-865b1aa5-b7fe-41f1-97e4-e7fe285c4b16.gif)
 
-Link of the [API](139-144-68-26.ip.linodeusercontent.com/all) <br/>
+Link for the API 139-144-68-26.ip.linodeusercontent.com/all <br/>
 Also you can specify for only one movie such as (139-144-68-26.ip.linodeusercontent.com/api/24)
