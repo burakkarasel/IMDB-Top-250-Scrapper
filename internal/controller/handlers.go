@@ -17,6 +17,10 @@ func GetMovieByID(c *fiber.Ctx) error {
 		return c.Status(500).SendString(err.Error())
 	}
 
+	if ID > 250 {
+		return c.Status(404).SendString("404 Not Found")
+	}
+
 	movie, err := models.GetMovieById(ID)
 
 	if err != nil {
