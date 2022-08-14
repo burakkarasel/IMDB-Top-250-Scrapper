@@ -80,8 +80,8 @@ go run cmd/main/*.go
 
 | Request     | URL           |
 | ----------- | ------------- |
-| Get Movie   | :8080/api/:id |
-| List Movies | :8080/api/all |
+| Get Movie   | :3000/api/:id |
+| List Movies | :3000/api/all |
 
 [Back To The Top](#IMDB-Top-250-Scrapper)
 
