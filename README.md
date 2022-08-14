@@ -89,12 +89,12 @@ go run cmd/main/*.go
 
 ## Deployed Version
 
-- You can send your API requests to 139-144-68-26.ip.linodeusercontent.com
+- You can send your API requests to 176-58-119-130.ip.linodeusercontent.com
 
-| Request             | URL                                            |
-| ------------------- | ---------------------------------------------- |
-| Get Movie with ID 1 | 139-144-68-26.ip.linodeusercontent.com/api/1   |
-| List Movies         | 139-144-68-26.ip.linodeusercontent.com/api/all |
+| Request             | URL                                             |
+| ------------------- | ----------------------------------------------- |
+| Get Movie with ID 1 | 176-58-119-130.ip.linodeusercontent.com/api/1   |
+| List Movies         | 176-58-119-130.ip.linodeusercontent.com/api/all |
 
 ## Author Info
 
