@@ -47,11 +47,13 @@ func crawl() []models.Movie {
 	infoCollector.OnHTML("section.sc-c7f03a63-0", func(e *colly.HTMLElement) {
 
 		tmpMovie := models.Movie{}
-		tmpMovie.Title = e.ChildText("div.khmuXj > h1")                                                      // done
+
+		tmpMovie.Title = e.ChildText("div.sc-80d4314-1 > h1.sc-b73cd867-0")                                  // done
 		tmpMovie.Genre = e.ChildText("a.sc-16ede01-3 > span.ipc-chip__text")                                 // done
 		tmpMovie.Poster = e.ChildAttr("div.ipc-media--poster-27x40 > img.ipc-image", "src")                  // done
-		rating := e.ChildText("div[data-testid=\"hero-rating-bar__aggregate-rating__score\"] > span.jGRxWM") // not done
+		rating := e.ChildText("div[data-testid=\"hero-rating-bar__aggregate-rating__score\"] > span.jGRxWM") // done
 		rating = string(rating[:3])
+		fmt.Println(tmpMovie.Title)
 
 		tmpMovie.Rating, _ = strconv.ParseFloat(rating, 64)
 

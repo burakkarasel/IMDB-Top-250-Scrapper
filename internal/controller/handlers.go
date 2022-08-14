@@ -1,12 +1,14 @@
 package controller
 
 import (
+	"errors"
 	"strconv"
 
 	"github.com/burakkarasel/IMDB-Top-250-Scrapper/internal/models"
 	"github.com/gofiber/fiber/v2"
 )
 
+// GetMovieByID gets the movie according to given id
 func GetMovieByID(c *fiber.Ctx) error {
 
 	id := c.Params("id")
@@ -17,8 +19,8 @@ func GetMovieByID(c *fiber.Ctx) error {
 		return c.Status(500).SendString(err.Error())
 	}
 
-	if ID > 250 {
-		return c.Status(404).SendString("404 Not Found")
+	if ID > 250 || ID < 1 {
+		return c.Status(404).SendString(errors.New("invalid movie ID").Error())
 	}
 
 	movie, err := models.GetMovieById(ID)

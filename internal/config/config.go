@@ -18,6 +18,7 @@ const maxOpenDbConn = 10
 const maxIdleDbConn = 5
 const maxDbLifetime = 5 * time.Minute
 
+// Connect connects to DB
 func Connect() error {
 	d, err := sql.Open("pgx", dsn.DSN)
 
@@ -42,6 +43,7 @@ func Connect() error {
 	return nil
 }
 
+// GetDB returns the connected DB
 func GetDB() *sql.DB {
 	return db
 }
