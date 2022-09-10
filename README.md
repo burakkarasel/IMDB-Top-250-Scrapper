@@ -85,17 +85,6 @@ go run cmd/main/*.go
 
 [Back To The Top](#IMDB-Top-250-Scrapper)
 
----
-
-## Deployed Version
-
-- You can send your API requests to 176-58-119-130.ip.linodeusercontent.com
-
-| Request             | URL                                             |
-| ------------------- | ----------------------------------------------- |
-| Get Movie with ID 1 | 176-58-119-130.ip.linodeusercontent.com/api/1   |
-| List Movies         | 176-58-119-130.ip.linodeusercontent.com/api/all |
-
 ## Author Info
 
 - Twitter - [@dev_bck](https://twitter.com/dev_bck)
